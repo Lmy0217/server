@@ -475,17 +475,17 @@ vertical-align:1px;
 <li>Window：<a href="https://www.termius.com/">Termius</a>、<a href="https://cmder.net/">Cmber</a> 或 <a href="https://git-scm.com/">Git Bash</a></li><li>Linux：Terminator 或终端</li><li>Android：<a href="https://download.agekt.com/juicesshpro.apk">JuiceSSH</a></li></ul>
 <h3 id="-">权限获取</h3>
 <ul>
-<li>请在你的主机上 <a href="https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5">生成 ssh-key</a>，生成后将公钥（位置：<code>~/.ssh/id_rsa.pub</code>）的内容发送到 <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#58;&#x6c;&#x6d;&#x79;&#48;&#50;&#x31;&#55;&#x40;&#x31;&#x32;&#x36;&#x2e;&#x63;&#111;&#109;">&#x6c;&#x6d;&#x79;&#48;&#50;&#x31;&#55;&#x40;&#x31;&#x32;&#x36;&#x2e;&#x63;&#111;&#109;</a>，等待管理员确认。</li></ul>
+<li>请在你的主机上 <a href="https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5">生成 ssh-key</a>，生成后将公钥（位置：<code>~/.ssh/id_rsa.pub</code>）的内容及你的个人信息发送到 <a href="&#109;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#x6c;&#x6d;&#x79;&#48;&#x32;&#x31;&#x37;&#64;&#49;&#50;&#x36;&#x2e;&#99;&#x6f;&#109;">&#x6c;&#x6d;&#x79;&#48;&#x32;&#x31;&#x37;&#64;&#49;&#50;&#x36;&#x2e;&#99;&#x6f;&#109;</a>，等待管理员确认。</li></ul>
 <h3 id="-">登录</h3>
 <ul>
 <li>登录中转服务器<br><code>[你的用户名]@[你的主机名]:~$ ssh -p60001 tribody@agekt.com</code></li></ul>
 <ul>
 <li>从中转服务器登录 GPU 服务器<ul>
-<li>登录结点2<br><code>tribody@tzonst-lab:~$ ssh node2</code></li><li>登录结点3<br><code>tribody@tzonst-lab:~$ ssh node3</code></li><li>登录结点4<br><code>tribody@tzonst-lab:~$ ssh node4</code></li></ul>
+<li>登录节点 2（注意：节点 2 第一块 GPU 禁止使用）<br><code>tribody@tzonst-lab:~$ ssh node2</code></li><li>登录节点 3<br><code>tribody@tzonst-lab:~$ ssh node3</code></li><li>登录节点 4<br><code>tribody@tzonst-lab:~$ ssh node4</code></li></ul>
 </li></ul>
 <h3 id="-">工作目录</h3>
 <ul>
-<li><p>创建工作目录<br><code>[结点用户名]@[结点名]:~$ mkdir ~/[你的名称]</code></p>
+<li><p>创建工作目录<br><code>[节点用户名]@[节点名]:~$ mkdir ~/[你的名称]</code></p>
 </li><li><p>（可选）工作目录结构：</p>
 <pre><code>~
 ├── [你的名称]
@@ -503,7 +503,7 @@ vertical-align:1px;
 </code></pre></li></ul>
 <h3 id="-">虚拟环境</h3>
 <ul>
-<li>在工作目录创建虚拟环境<br><code>[[结点用户名]@[结点名]: [你的名称]]# virtualenv -p /usr/bin/python3 venv</code></li><li>启用虚拟环境<br><code>[[结点用户名]@[结点名]: [你的名称]]# source venv/bin/activate</code></li><li>停用虚拟环境<br><code>(venv) [[结点用户名]@[结点名]: [你的名称]]# deactivate</code></li></ul>
+<li>在工作目录创建虚拟环境<br><code>[[节点用户名]@[节点名]: [你的名称]]# virtualenv -p /usr/bin/python3 venv</code></li><li>启用虚拟环境<br><code>[[节点用户名]@[节点名]: [你的名称]]# source venv/bin/activate</code></li><li>停用虚拟环境<br><code>(venv) [[节点用户名]@[节点名]: [你的名称]]# deactivate</code></li></ul>
 <h3 id="-">文件夹传输</h3>
 <p>大数据量传输方案：</p>
 <ul>
@@ -512,22 +512,25 @@ vertical-align:1px;
 <ul>
 <li>使用 <a href="https://winscp.net">WinSCP</a></li><li>使用 <code>scp</code> 命令<ul>
 <li>上传文件夹 project1<ul>
-<li>上传到中转服务器<br><code>[你的用户名]@[你的主机名]:~$ scp -P60001 -r project1 tribody@agekt.com:/home/tribody/temp</code></li><li>从中转服务器上传到 GPU 服务器<br><code>tribody@tzonst-lab:~$ scp -r /home/tribody/temp/project1 [结点用户名]@[结点名]:/home/[结点用户名]/[你的名称]/works</code></li></ul>
+<li>上传到中转服务器<br><code>[你的用户名]@[你的主机名]:~$ scp -P60001 -r project1 tribody@agekt.com:/home/tribody/temp</code></li><li>从中转服务器上传到 GPU 服务器<br><code>tribody@tzonst-lab:~$ scp -r /home/tribody/temp/project1 [节点用户名]@[节点名]:/home/[节点用户名]/[你的名称]/works</code></li></ul>
 </li><li>下载文件夹 project1<ul>
-<li>从 GPU 服务器下载到中转服务器<br><code>tribody@tzonst-lab:~$ scp -r [结点用户名]@[结点名]:/home/[结点用户名]/[你的名称]/works/project1 /home/tribody/temp</code></li><li>从中转服务器下载<br><code>[你的用户名]@[你的主机名]:~$ scp -P60001 -r tribody@agekt.com:/home/tribody/temp/project1 .</code></li></ul>
+<li>从 GPU 服务器下载到中转服务器<br><code>tribody@tzonst-lab:~$ scp -r [节点用户名]@[节点名]:/home/[节点用户名]/[你的名称]/works/project1 /home/tribody/temp</code></li><li>从中转服务器下载<br><code>[你的用户名]@[你的主机名]:~$ scp -P60001 -r tribody@agekt.com:/home/tribody/temp/project1 .</code></li></ul>
 </li></ul>
 </li></ul>
 <h3 id="-">运行程序</h3>
 <ul>
-<li>查看 GPU 状态<br>使用 <code>nvidia-smi</code> 或 <code>gpustat</code> 查看 GPU 占用率及显存消耗</li><li>选择未使用或使用量较少的 GPU 运行程序（GPUID = 0,1）<br><code>(venv) [[结点用户名]@[结点名]: [你的project]]# CUDA_VISIBLE_DEVICES=[GPUID] python3 [你的程序] &amp;</code></li><li>后台运行<ul>
-<li>加上 <code>&amp;</code> 使得程序在后台运行</li><li>使用 <code>jobs</code> 查看正在执行的任务，记下任务ID</li><li><code>disown -h %[任务ID]</code></li></ul>
-</li></ul>
-<h3 id="-">查看动态状态</h3>
+<li>使用 <code>screen</code> 命令创建（或恢复）终端窗口<ul>
+<li>创建终端窗口<br><code>(venv) [[节点用户名]@[节点名]: [你的project]]# screen -S [自定义的窗口名]</code></li><li>列出所有终端窗口<br><code>(venv) [[节点用户名]@[节点名]: [你的project]]# screen -ls</code></li><li>恢复特定终端窗口<br><code>(venv) [[节点用户名]@[节点名]: [你的project]]# screen -r [自定义的窗口名]</code></li></ul>
+</li><li>查看 GPU 状态<br>使用 <code>nvidia-smi</code> 或 <code>gpustat</code> 查看 GPU 占用率及显存消耗</li><li>在终端窗口中选择未使用或使用量较少的 GPU 运行程序（GPUID = 0,1）<br><code>(venv) [[节点用户名]@[节点名]: [你的project]]# CUDA_VISIBLE_DEVICES=[GPUID] python3 [你的程序] &amp;</code></li><li>将前台终端窗口置入后台<br><code>(venv) [[节点用户名]@[节点名]: [你的project]]# screen -d [自定义的窗口名]</code></li></ul>
+<h3 id="-">查看状态</h3>
 <ul>
 <li>GPU<br><code>watch -n1 --color gpustat -cpu --color</code></li><li>日志文件<br><code>watch -n1 --color tail -n[需要显示的行数(文件尾)] [保存的日志文件路径]</code></li></ul>
+<h3 id="-">代码框架（可参考）</h3>
+<ul>
+<li><a href="https://github.com/Lmy0217/PyTorch-Project-Framework">PyTorch-Project-Framework</a></li></ul>
 <h5 id="-">更新日志</h5>
 <ul>
-<li>修订于2018年11月3日</li><li>2018年11月10日：修改代理域名，增加 Android 软件</li><li>2018年12月14日：修改服务器用户名为 tonnn</li><li>2019年3月19日：修改 node2 用户名为 web，修改中转服务器为 tribody</li><li>2019年7月2日：移除登录 GPU 服务器的用户名，增加注解，增加权限获取，增加数据传输方案，修改工作目录结构显示</li></ul>
+<li>修订于2018年11月3日</li><li>2018年11月10日：修改代理域名，增加 Android 软件</li><li>2018年12月14日：修改服务器用户名为 tonnn</li><li>2019年3月19日：修改 node2 用户名为 web，修改中转服务器为 tribody</li><li>2019年7月2日：移除登录 GPU 服务器的用户名，增加注解，增加权限获取，增加数据传输方案，修改工作目录结构显示</li><li>2019年10月30日：权限获取需发送个人信息，节点 2 GPU 限制，使用 screen 命令后台运行程序，加入代码框架</li></ul>
 
 </body>
 </html>
