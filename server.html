@@ -475,13 +475,13 @@ vertical-align:1px;
 <li>Window：<a href="https://www.termius.com/">Termius</a>、<a href="https://cmder.net/">Cmber</a> 或 <a href="https://git-scm.com/">Git Bash</a></li><li>Linux：Terminator 或终端</li><li>Android：<a href="https://download.agekt.com/juicesshpro.apk">JuiceSSH</a></li></ul>
 <h3 id="-">权限获取</h3>
 <ul>
-<li>请在你的主机上 <a href="https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5">生成 ssh-key</a>，生成后将公钥（位置：<code>~/.ssh/id_rsa.pub</code>）的内容及你的个人信息发送到 <a href="&#109;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#x6c;&#x6d;&#x79;&#48;&#x32;&#x31;&#x37;&#64;&#49;&#50;&#x36;&#x2e;&#99;&#x6f;&#109;">&#x6c;&#x6d;&#x79;&#48;&#x32;&#x31;&#x37;&#64;&#49;&#50;&#x36;&#x2e;&#99;&#x6f;&#109;</a>，等待管理员确认。</li></ul>
+<li>请在你的主机上 <a href="https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5">生成 ssh-key</a>，生成后将公钥（位置：<code>~/.ssh/id_rsa.pub</code>）的内容及你的个人信息发送到 <a href="&#109;&#x61;&#x69;&#x6c;&#116;&#111;&#x3a;&#108;&#x6d;&#121;&#x30;&#x32;&#49;&#55;&#64;&#x31;&#x32;&#54;&#x2e;&#99;&#x6f;&#x6d;">&#108;&#x6d;&#121;&#x30;&#x32;&#49;&#55;&#64;&#x31;&#x32;&#54;&#x2e;&#99;&#x6f;&#x6d;</a>，等待管理员确认。</li></ul>
 <h3 id="-">登录</h3>
 <ul>
 <li>登录中转服务器<br><code>[你的用户名]@[你的主机名]:~$ ssh -p60001 tribody@agekt.com</code></li></ul>
 <ul>
 <li>从中转服务器登录 GPU 服务器<ul>
-<li>登录节点 2（注意：节点 2 第一块 GPU 禁止使用）<br><code>tribody@tzonst-lab:~$ ssh node2</code></li><li>登录节点 3<br><code>tribody@tzonst-lab:~$ ssh node3</code></li><li>登录节点 4<br><code>tribody@tzonst-lab:~$ ssh node4</code></li></ul>
+<li>登录节点 2（注：节点 2 第一块 GPU 禁止使用）<br><code>tribody@tzonst-lab:~$ ssh node2</code></li><li>登录节点 3<br><code>tribody@tzonst-lab:~$ ssh node3</code></li><li>登录节点 4<br><code>tribody@tzonst-lab:~$ ssh node4</code></li></ul>
 </li></ul>
 <h3 id="-">工作目录</h3>
 <ul>
@@ -507,7 +507,7 @@ vertical-align:1px;
 <h3 id="-">文件夹传输</h3>
 <p>大数据量传输方案：</p>
 <ul>
-<li>使用 <a href="https://cowtransfer.com/">奶牛快传</a></li><li>先上传到百度云，再在服务器上使用 <a href="https://github.com/iikira/BaiduPCS-Go">BaiduPCS</a> 下载</li></ul>
+<li>使用 <a href="https://cowtransfer.com/">奶牛快传</a></li><li>使用 <a href="https://github.com/iikira/BaiduPCS-Go">BaiduPCS</a>（注：百度云上传或下载失败请稍后再次操作）</li></ul>
 <p>小数据量传输方案：</p>
 <ul>
 <li>使用 <a href="https://winscp.net">WinSCP</a></li><li>使用 <code>scp</code> 命令<ul>
@@ -530,7 +530,7 @@ vertical-align:1px;
 <li><a href="https://github.com/Lmy0217/PyTorch-Project-Framework">PyTorch-Project-Framework</a></li></ul>
 <h5 id="-">更新日志</h5>
 <ul>
-<li>修订于2018年11月3日</li><li>2018年11月10日：修改代理域名，增加 Android 软件</li><li>2018年12月14日：修改服务器用户名为 tonnn</li><li>2019年3月19日：修改 node2 用户名为 web，修改中转服务器为 tribody</li><li>2019年7月2日：移除登录 GPU 服务器的用户名，增加注解，增加权限获取，增加数据传输方案，修改工作目录结构显示</li><li>2019年10月30日：权限获取需发送个人信息，节点 2 GPU 限制，使用 screen 命令后台运行程序，加入代码框架</li></ul>
+<li>修订于2018年11月3日</li><li>2018年11月10日：修改代理域名，增加 Android 软件</li><li>2018年12月14日：修改服务器用户名为 tonnn</li><li>2019年3月19日：修改 node2 用户名为 web，修改中转服务器为 tribody</li><li>2019年7月2日：移除登录 GPU 服务器的用户名，增加注解，增加权限获取，增加数据传输方案，修改工作目录结构显示</li><li>2019年10月30日：权限获取需发送个人信息，节点 2 GPU 限制，BaiduPCS 包括上传和下载，使用 screen 命令后台运行程序，加入代码框架</li></ul>
 
 </body>
 </html>
