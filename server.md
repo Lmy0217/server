@@ -89,7 +89,7 @@
 
 ### 查看状态
 * GPU
-`watch -n1 --color gpustat -cpu --color`
+在 GPU 服务器运行 `watch -n1 --color gpustat -cpu --color` 或打开网页 [agekt.com:60005](agekt.com:60005) 查看
 * 日志文件
 `watch -n1 --color tail -n[需要显示的行数(文件尾)] [保存的日志文件路径]`
 
@@ -103,3 +103,4 @@
 * 2019年3月19日：修改 node2 用户名为 web，修改中转服务器为 tribody
 * 2019年7月2日：移除登录 GPU 服务器的用户名，增加注解，增加权限获取，增加数据传输方案，修改工作目录结构显示
 * 2019年10月30日：权限获取需发送个人信息，节点 2 GPU 限制，BaiduPCS 包括上传和下载，使用 screen 命令后台运行程序，加入代码框架
+* 2019年11月25日：加入 GPU 状态网页
